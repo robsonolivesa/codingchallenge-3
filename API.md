@@ -1,3 +1,34 @@
+## Como subir o servidor?
+
+Clonar o repositório: 
+```javascript
+https://github.com/claudiokoji/testimonials-server
+```
+
+Criar uma variável de ambiente MASTER_KEY com uma string aleatória como valor.
+
+Instalar as dependências:
+```javascript
+npm i
+```
+
+Preencher os dados dos usuários no arquivo create-users.js.
+
+Rodar o script para criar usuários:
+```javascript
+node create-users
+```
+
+Subir o servidor:
+```javascript
+node index
+```
+
+Para fazer as chamadas autenticadas, basta passar o token no header Authorization:
+```javascript
+"Authorization": "Bearer token"
+```
+
 ## POST /auth/new
 
 Utilize este método para obter os tokens de acesso utilizando e-mail e senha fornecidos
