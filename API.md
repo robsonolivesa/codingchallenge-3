@@ -42,7 +42,7 @@ Utilize este método para visualizar a lista de pessoas cadastradas na plataform
 Query Parameters: 
 - page: Página que deve retornar (default: 1)
 - pageSize: Quantidade de leilões que deve ser retornado (default: 5, max: 10)
-- name: Nome do leilão para filtro
+- name: Nome da pessoa para filtro
 
 Response: 
 ```javascript
