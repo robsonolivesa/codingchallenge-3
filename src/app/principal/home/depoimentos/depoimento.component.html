@@ -1,0 +1,73 @@
+<div class="thf-row">
+
+  <div class="thf-xl-12 thf-lg-12 thf-md-12 thf-sm-12">
+
+    <div>
+      <h1 class="thf-page-header-title ng-star-inserted center">Depoimentos</h1>
+      <thf-divider></thf-divider>
+    </div>
+    
+
+    <div class="thf-xl-12 thf-lg-12 thf-md-12 thf-sm-12">
+      <div class="thf-row">
+        <thf-button-group class="thf-md-12" [t-buttons]="buttons">
+        </thf-button-group>
+      </div>
+      <thf-divider class="thf-md-12"></thf-divider>
+    </div>
+
+    <div class="thf-row">
+        <thf-list-view #listAprovados class="thf-sm-12 thf-md-12 thf-lg-12"
+          t-property-title="name"
+          [t-items]="itensLista">
+        
+          <ng-template t-list-view-content-template let-item class="thf-sm-12 thf-md-12 thf-lg-12">
+            <div class="thf-row">
+            
+              <thf-avatar
+                class="thf-sm-3 thf-md-3 thf-lg-3"
+                t-size="md"
+                [t-src]="item.foto">
+              </thf-avatar>
+  
+                <div class="thf-sm-9 thf-md-9 thf-lg-9">
+                  <b> {{ item.nome }} </b>
+                    <br/>
+                  <b> {{ item.author }} </b>
+                  <br/>
+                  <i> {{ item.text }} </i>
+                </div>
+                <thf-divider class="thf-md-12"></thf-divider>
+                <div class="thf-row" class="thf-xl-3 thf-lg-3 thf-md-3 thf-sm-3" *ngIf="item.status == '1'">
+                
+                    <div class="thf-xl-6 thf-lg-6 thf-md-6 thf-sm-6">
+                      <thf-button (t-click)="aprovar(item._id, item.dono)" t-type="primary" t-icon="thf-icon thf-icon-ok" t-label="Aprovar">
+                      </thf-button>
+                    </div>
+                    <div class="thf-xl-6 thf-lg-6 thf-md-6 thf-sm-6">
+                        <thf-button (t-click)="excluir(item._id, item.dono)" t-type="danger" t-icon="thf-icon thf-icon-close" t-label="Reprovar">
+                        </thf-button>
+                      </div>
+                  </div>
+                  <div class="thf-row" class="thf-xl-3 thf-lg-3 thf-md-3 thf-sm-3" *ngIf="item.status == '2'">
+                
+                      <div class="thf-xl-6 thf-lg-6 thf-md-6 thf-sm-6">
+                        <thf-button (t-click)="excluir(item._id, item.dono)" t-type="danger" t-icon="thf-icon thf-icon-clear-content" t-label="Excluir">
+                        </thf-button>
+                      </div>
+
+                    </div>
+  
+            </div>
+            
+
+
+          </ng-template>
+      
+        </thf-list-view>
+      </div>
+
+
+
+  </div>
+</div>

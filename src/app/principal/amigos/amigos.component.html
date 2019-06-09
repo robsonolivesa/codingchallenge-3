@@ -1,0 +1,16 @@
+<div class="thf-wrapper">
+  <app-menu></app-menu>
+  <thf-page-dynamic-search [t-title]="title" (t-quick-search)="onQuickSearch($event)"
+    (t-change-disclaimers)="onDeleteDisclaimers($event)">
+    <div class="row">
+      <div class="thf-sm-12 thf-md-12 thf-lg-12">
+        <div *ngFor="let amigo of listAmigos" class="thf-sm-4 thf-md-4 thf-lg-4">
+
+          <app-amigo  [id-amigo]="amigo._id" [nome-amigo]="amigo.name" [foto-amigo]="amigo.photo">
+
+          </app-amigo>
+        </div>
+      </div>
+    </div>
+  </thf-page-dynamic-search>
+</div>

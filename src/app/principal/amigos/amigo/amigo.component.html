@@ -1,0 +1,91 @@
+
+<div class="thf-row card">
+  <thf-widget
+    class="thf-sm-12 thf-md-12 thf-lg-12"
+
+    t-primary-label="Detalhes"
+    (t-primary-action)="visualizarAmigo(id)">
+
+    <thf-avatar
+      class="thf-sm-6 thf-md-6 thf-lg-6"
+      t-size="lg"
+      [t-src]="imagem">
+    </thf-avatar>
+
+    <div class="thf-sm-6 thf-md-6 thf-lg-6">
+      <p><strong> {{ nomeAmigo }} </strong></p>
+    </div>
+
+  </thf-widget>
+</div>
+
+<thf-modal #detailsModal 
+  [t-title]="titleDetailsModal"
+  [t-primary-action]="confirm"
+  [t-secondary-action]="close">
+
+  <div class="thf-row">
+    <thf-widget
+      class="thf-sm-12 thf-md-12 thf-lg-12"
+      t-height="150"
+      t-title="">
+  
+      <thf-avatar
+        class="thf-md-2"
+        t-size="md"
+        [t-src]="imagem">
+      </thf-avatar>
+  
+      <div class="thf-md-10">
+        <h2>{{ nomeAmigoModal }}</h2>
+      </div>
+  
+    </thf-widget>
+  </div>
+
+  <div class="thf-row">
+    <h3>Depoimentos</h3>
+  </div>
+
+  <form #optionsForm="ngForm" class="thf-sm-12 thf-md-12 thf-lg-12">
+    
+    <div class="thf-row">
+      <thf-list-view #listDepoimentos class="thf-sm-12 thf-md-12 thf-lg-12"
+        t-property-title="name"
+        [t-items]="itensLista">
+      
+        <ng-template t-list-view-content-template let-item class="thf-sm-12 thf-md-12 thf-lg-12">
+          <div class="thf-row">
+          
+            <thf-avatar
+              class="thf-sm-3 thf-md-3 thf-lg-3"
+              t-size="sm"
+              [t-src]="item.foto">
+            </thf-avatar>
+
+              <div class="thf-sm-9 thf-md-9 thf-lg-9">
+                <b> {{ item.nome }} </b>
+                  <br/>
+                <b> {{ item.author }} </b>
+                <br/>
+                <i> {{ item.text }} </i>
+              </div>
+
+          </div>
+        </ng-template>
+    
+      </thf-list-view>
+    </div>
+
+    <div class="thf-row">
+      <thf-textarea
+        class="thf-md-12"
+        name="texto"
+        [(ngModel)]="textoDepoimento"
+        t-label="Novo depoimento"
+        t-rows="8">
+      </thf-textarea>
+    </div>
+  </form>
+
+</thf-modal>
